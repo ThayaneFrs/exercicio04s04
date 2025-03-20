@@ -4,7 +4,6 @@ import perfildesaude.PerfilDeSaude;
 
 import java.time.LocalDate;
 import java.util.Scanner;
-import java.util.SimpleTimeZone;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,12 +25,20 @@ public class Main {
         LocalDate dataNascimento = LocalDate.parse(dataNascimentoStr);
 
         System.out.println("Digite a altura (em metros): ");
-        double altura = entrada.nextDouble();
+        double altura= entrada.nextDouble();
 
         System.out.println("Digite o peso (em Kg): ");
         double peso = entrada.nextDouble();
 
-        PerfilDeSaude perfil = new PerfilDeSaude(nome, sobrenome, sexo, dataNascimento, altura, peso);
+        PerfilDeSaude perfil = new PerfilDeSaude("", "", "", null, 0.0, 0.0);
+
+        perfil.setNome(nome);
+        perfil.setSobrenome(sobrenome);
+        perfil.setSexo(sexo);
+        perfil.setDataNascimento(dataNascimento);
+        perfil.setAltura(altura);
+        perfil.setPeso(peso);
+
         System.out.println("Informacoes do Perfil de Saude:");
         System.out.println("Nome: " + perfil.getNome() + " " + perfil.getSobrenome());
         System.out.println("Sexo:" + perfil.getSexo());
